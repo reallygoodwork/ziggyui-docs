@@ -1,0 +1,181 @@
+---
+title: "Button"
+layout: "../layouts/MainLayout.astro"
+---
+
+import { Checkbox } from "ziggyui-svelte";
+
+# Checkbox
+
+The Checkbox component is used to allow users to select one or more options from a set.
+
+## Usage
+
+<Checkbox label="Checkbox" />
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+---
+
+<Checkbox label="Checkbox" />
+```
+
+## CSS Variables
+
+```css
+:root {
+  --checkbox-color: var(--c-accent, #007bff);
+  --checkbox-bg-color: transparent;
+  --checkbox-padding-inline: var(--textFrameY, 12px);
+  --checkbox-padding-block: var(--textFrameY, 12px);
+  --checkbox-font-size: var(--body-fontSize, 14px);
+  --checkbox-border-radius: var(--radius, 4px);
+  --checkbox-border-width: var(--fieldBorderWidth, 1px);
+  --checkbox-border-color: var(--c-fieldBorder, #007bff);
+  --checkbox-caret-color: var(--c-accent, #007bff);
+  --checkbox-placeholder-color: var(--c-grey4, #007bff);
+  --checkbox-disabled-bg-color: var(--disabled-input-bg-color, #007bff);
+  --checkbox-disabled-color: var(--disabled-input-color, #007bff);
+  --checkbox-error-border-color: var(--error-input-border-color, #007bff);
+  --checkbox-error-color: var(--error-input-color, #007bff);
+}
+```
+
+## Props
+
+### `checked`
+
+Whether the checkbox is checked or not.
+
+<Checkbox label="Checkbox" checked />
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" checked />
+```
+
+### `disabled`
+
+Whether the checkbox is disabled or not.
+
+<Checkbox label="Checkbox" disabled />
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" disabled />
+```
+
+### `name`
+
+The name of the checkbox to be used in the form.
+
+<Checkbox label="Checkbox" name="checkbox" />
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" name="checkbox" />
+```
+
+### `hasError`
+
+Whether the checkbox has an error or not. This will add a aria-invalid attribute to the checkbox.
+
+<Checkbox label="Checkbox" hasError />
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" hasError />
+```
+
+It is not required to add this prop directly if you are using a parent component to wrap the checkbox. You can use [Svelte Context](https://svelte.dev/tutorial/context-api) to pass the error state to the checkbox by setting `hasError`.
+
+```svelte
+<script lang="ts">
+  import { setContext } from 'svelte';
+  import { Checkbox } from "ziggyui-svelte";
+
+  setContext('hasError', true);
+</script>
+
+<div>
+  <Checkbox label="Checkbox" />
+</div>
+```
+
+### `customClass`
+
+The custom class to be added to the checkbox.
+
+<Checkbox label="Checkbox" customClass="bg-red-500" />
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" customClass="bg-red-500" />
+```
+
+## Events
+
+### `change`
+
+The change event is fired when the checkbox is checked or unchecked. It returns the checked state of the checkbox.
+
+```svelte
+<script lang="ts">
+ import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" on:change={(e) => console.log('changed', e)} />
+```
+
+### `focus`
+
+The focus event is fired when the checkbox is focused. It returns the checked state of the checkbox.
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" on:focus={(e) => console.log('focused', e)} />
+```
+
+### `blur`
+
+The blur event is fired when the checkbox is blurred. It returns the checked state of the checkbox.
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" on:blur={(e) => console.log('blurred', e)} />
+```
+
+### `click`
+
+The click event is fired when the checkbox is clicked. It returns the checked state of the checkbox.
+
+```svelte
+<script lang="ts">
+  import { Checkbox } from "ziggyui-svelte";
+</script>
+
+<Checkbox label="Checkbox" on:click={(e) => console.log('clicked', e)} />
+```

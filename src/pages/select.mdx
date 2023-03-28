@@ -1,0 +1,215 @@
+---
+title: "Select"
+layout: "../layouts/MainLayout.astro"
+---
+
+import { Select } from "ziggyui-svelte";
+
+# Select
+
+Select is a component that allows you to select a single value from a list of options. It is a wrapper around the native HTML select element.
+
+## Usage
+
+<Select>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+## CSS Variables
+
+```css
+:root {
+  --select-color: var(--c-body, #007bff);
+  --select-bg-color: transparent;
+  --select-padding-inline: var(--textFrameY, 12px);
+  --select-padding-block: var(--textFrameY, 12px);
+  --select-font-size: var(--body-fontSize, 14px);
+  --select-border-radius: var(--radius, 4px);
+  --select-border-width: var(--fieldBorderWidth, 1px);
+  --select-border-color: var(--c-fieldBorder, #007bff);
+  --select-caret-color: var(--c-accent, #007bff);
+  --select-placeholder-color: var(--c-grey4, #007bff);
+  --select-disabled-bg-color: var(--disabled-input-bg-color, #007bff);
+  --select-disabled-color: var(--disabled-input-color, #007bff);
+  --select-error-border-color: var(--error-input-border-color, #007bff);
+  --select-error-color: var(--error-input-color, #007bff);
+  --select-iconwidth: var(--select-iconwidth, 1.5rem);
+}
+```
+
+## Props
+
+### `value`
+
+The value of the selected option.
+
+<Select value="2">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  let value = "2";
+</script>
+
+<Select value="2">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+### `disabled`
+
+If true, the select will be disabled.
+
+<Select disabled>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  let disabled = true;
+</script>
+
+<Select disabled>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+### `hasError`
+
+Whether the select has an error. Defaults to `false`. This will add a aria-invalid attribute to the input.
+
+<Select disabled hasError>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  import { Select } from "ziggyui-svelte";
+</script>
+
+<Select disabled hasError>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+It is not required to add this prop directly if you are using a parent component to wrap the input. You can use [Svelte Context](https://svelte.dev/tutorial/context-api) to pass the error state to the input by setting `hasError`.
+
+```svelte
+<script lang="ts">
+  import { setContext } from 'svelte';
+  import { Select } from "ziggyui-svelte";
+
+  setContext('hasError', true);
+</script>
+
+<Select disabled>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+## Events
+
+### `input`
+
+The input event is fired when the select value changes.
+
+<Select on:input={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  import { Select } from "ziggyui-svelte";
+</script>
+
+<Select on:input={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+### `click`
+
+The click event is fired when the select is clicked.
+
+<Select on:click={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Select on:click={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+### `focus`
+
+The focus event is fired when the select is focused.
+
+<Select on:focus={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  import { Select } from "ziggyui-svelte";
+</script>
+
+<Select on:focus={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+### `blur`
+
+The blur event is fired when the select is blurred.
+
+<Select on:blur={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+
+```svelte
+<script>
+  import { Select } from "ziggyui-svelte";
+</script>
+
+<Select on:focus={console.log}>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```

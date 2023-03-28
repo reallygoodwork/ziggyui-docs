@@ -1,0 +1,268 @@
+---
+title: "Input"
+layout: "../layouts/MainLayout.astro"
+---
+
+import { Input } from "ziggyui-svelte";
+
+# Input
+
+The Input component is a wrapper around the native input element. It supports all the same attributes and events as the native input element.
+
+## Usage
+
+<Input />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input />
+```
+
+## CSS Variables
+
+```css
+:root {
+  --input-color: var(--c-body, #007bff);
+  --input-bg-color: transparent;
+  --input-padding-inline: var(--textFrameY, 12px);
+  --input-padding-block: var(--textFrameY, 12px);
+  --input-font-size: var(--body-fontSize, 14px);
+  --input-border-radius: var(--radius, 4px);
+  --input-border-width: var(--fieldBorderWidth, 1px);
+  --input-border-color: var(--c-fieldBorder, #007bff);
+  --input-caret-color: var(--c-accent, #007bff);
+  --input-placeholder-color: var(--c-grey4, #007bff);
+  --input-disabled-bg-color: var(--disabled-input-bg-color, #007bff);
+  --input-disabled-color: var(--disabled-input-color, #007bff);
+  --input-error-border-color: var(--error-input-border-color, #007bff);
+  --input-error-color: var(--error-input-color, #007bff);
+}
+```
+
+## Props
+
+### `type`
+
+The type of input. Defaults to `text`. Can be any of the following:
+
+- `text`
+- `email`
+- `number`
+- `password`
+- `search`
+- `tel`
+- `url`
+
+{" "}
+
+<Input type="number" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" />
+```
+
+### `value`
+
+The value of the input. Defaults to `""`.
+
+<Input type="number" value="2" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" value="2" />
+```
+
+### `placeholder`
+
+The placeholder text of the input. Defaults to `""`.
+
+<Input type="number" placeholder="Enter a number" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" placeholder="Enter a number" />
+```
+
+### `disabled`
+
+Whether the input is disabled. Defaults to `false`.
+
+<Input type="number" disabled />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" disabled />
+```
+
+### `required`
+
+Whether the input is required. Defaults to `false`. This will add the `required` attribute to the input.
+
+<Input type="number" required />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" required />
+```
+
+### `name`
+
+The name of the input. Defaults to `""`.
+
+<Input type="number" name="number" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" name="number" />
+```
+
+### `minLength`
+
+The minimum length of the input. Defaults to `""`.
+
+<Input type="text" minLength="5" value="hello" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" minLength="2" />
+```
+
+### `maxLength`
+
+The maximum length of the input. Defaults to `""`.
+
+<Input type="text" maxLength="5" value="hello" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" maxLength="2" />
+```
+
+### `pattern`
+
+The pattern to validate the input. Defaults to `""`.
+
+<Input type="text" pattern="[a-z]{5}" value="hello" />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="text" pattern="[a-z]{5}" />
+```
+
+### `hasError`
+
+Whether the input has an error. Defaults to `false`. This will add a aria-invalid attribute to the input.
+
+<Input type="number" hasError />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input type="number" hasError />
+```
+
+It is not required to add this prop directly if you are using a parent component to wrap the input. You can use [Svelte Context](https://svelte.dev/tutorial/context-api) to pass the error state to the input by setting `hasError`.
+
+```svelte
+<script lang="ts">
+  import { setContext } from 'svelte';
+  import { Input } from "ziggyui-svelte";
+
+  setContext('hasError', true);
+</script>
+
+<div>
+  <Input label="Checkbox" />
+</div>
+```
+
+## Events
+
+### `input`
+
+The input event is fired when the input value changes.
+
+<Input on:input={console.log} />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input on:input={console.log} />
+```
+
+### `click`
+
+The click event is fired when the input is clicked.
+
+<Input on:click={console.log} />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input on:click={console.log} />
+```
+
+### `focus`
+
+The focus event is fired when the input is focused.
+
+<Input on:focus={console.log} />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input on:focus={console.log} />
+```
+
+### `blur`
+
+The blur event is fired when the input is blurred.
+
+<Input on:blur={console.log} />
+
+```svelte
+<script>
+  import { Input } from "ziggyui-svelte";
+</script>
+
+<Input on:blur={console.log} />
+```

@@ -1,0 +1,198 @@
+---
+title: "CSS Variables"
+layout: "../layouts/MainLayout.astro"
+---
+
+# CSS Variables
+
+ZiggyUI uses CSS variables to allow you to customize the look and feel of the components. You can use the variables in your own CSS files or in your Svelte components. To make a change to the look and feel of a component, you can either override the CSS variables in your own CSS file or you can pass the variables as props to the component.
+
+```css
+:root {
+  /* Typography */
+  --baseTextSize: 0.9rem;
+  --textSizeIncrement: 1.23;
+
+  --text-xs: calc(var(--baseTextSize) / var(--textSizeIncrement));
+  --text-s: var(--baseTextSize);
+  --text-m: calc(var(--text-s) * var(--textSizeIncrement));
+  --text-l: calc(var(--text-m) * var(--textSizeIncrement));
+  --text-xl: calc(var(--text-l) * var(--textSizeIncrement));
+
+  --lineHeightFixedAmount: 0.35rem;
+  --lineHeightRelativeAmount: 1.1em;
+  --globalLineHeight: calc(
+    var(--lineHeightFixedAmount) + var(--lineHeightRelativeAmount)
+  );
+
+  --fontFamily: system-ui, sans-serif;
+
+  /* Spacing */
+  --unit: 0.5rem;
+  --spaceIncrement: 1.65;
+
+  --space-s: var(--unit);
+  --space-m: calc(var(--space-s) * var(--spaceIncrement));
+  --space-l: calc(var(--space-m) * var(--spaceIncrement));
+  --space-xl: calc(var(--space-l) * var(--spaceIncrement));
+  --space-2xl: calc(var(--space-xl) * var(--spaceIncrement));
+  --space-3xl: calc(var(--space-2xl) * var(--spaceIncrement));
+  --space-4xl: calc(var(--space-3xl) * var(--spaceIncrement));
+
+  --textFrameRatio: 2.37;
+  --textFrameY: 0.8em;
+  --textFrameX: calc(var(--textFrameY) * var(--textFrameRatio));
+
+  /* Main Feature Colour */
+  --accentH: 60;
+  --accentS: 100%;
+  --accentL: 21%;
+  --c-accent: hsl(var(--accentH), var(--accentS), var(--accentL));
+  --c-accentContrasted: hsl(var(--accentH), var(--accentS), 95%);
+
+  /* Greyscale Feature Colour */
+  --greyH: var(--accentH);
+  --greyS: 5%;
+  --initialGreyLightness: 93%;
+  --greyscaleLightnessIncrement: 11.3%;
+
+  --grey1L: var(--initialGreyLightness);
+  --grey2L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 1
+  );
+  --grey3L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 2
+  );
+  --grey4L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 3
+  );
+  --grey5L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 4
+  );
+  --grey6L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 5
+  );
+  --grey7L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 6
+  );
+  --grey8L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 7
+  );
+
+  --c-grey1: hsl(var(--greyH), var(--greyS), var(--grey1L));
+  --c-grey2: hsl(var(--greyH), var(--greyS), var(--grey2L));
+  --c-grey3: hsl(var(--greyH), var(--greyS), var(--grey3L));
+  --c-grey4: hsl(var(--greyH), var(--greyS), var(--grey4L));
+  --c-grey5: hsl(var(--greyH), var(--greyS), var(--grey5L));
+  --c-grey6: hsl(var(--greyH), var(--greyS), var(--grey6L));
+  --c-grey7: hsl(var(--greyH), var(--greyS), var(--grey7L));
+  --c-grey8: hsl(var(--greyH), var(--greyS), var(--grey8L));
+
+  /* Danger Colour */
+  --dangerH: 10;
+  --dangerS: 71%;
+  --dangerL: 44%;
+  --c-danger: hsl(var(--dangerH), var(--dangerS), var(--dangerL));
+  --c-dangerContrasted: hsl(var(--dangerH), var(--dangerS), 95%);
+
+  /* Greyscale Danger Colour */
+  --grey-danger-H: var(--dangerH);
+
+  --grey-danger-1L: var(--initialGreyLightness);
+  --grey-danger-2L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 1
+  );
+  --grey-danger-3L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 2
+  );
+  --grey-danger-4L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 3
+  );
+  --grey-danger-5L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 4
+  );
+  --grey-danger-6L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 5
+  );
+  --grey-danger-7L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 6
+  );
+  --grey-danger-8L: calc(
+    var(--initialGreyLightness) - var(--greyscaleLightnessIncrement) * 7
+  );
+
+  --c-grey-danger-1: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-1L)
+  );
+  --c-grey-danger-2: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-2L)
+  );
+  --c-grey-danger-3: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-3L)
+  );
+  --c-grey-danger-4: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-4L)
+  );
+  --c-grey-danger-5: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-5L)
+  );
+  --c-grey-danger-6: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-6L)
+  );
+  --c-grey-danger-7: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-7L)
+  );
+  --c-grey-danger-8: hsl(
+    var(--grey-danger-H),
+    var(--greyS),
+    var(--grey-danger-8L)
+  );
+
+  /* Component Specific Properties */
+  --c-border: hsla(var(--greyH), var(--greyS), var(--grey8L), 0.1);
+  --c-overlay: hsla(var(--greyH), var(--greyS), var(--grey8L), 0.07);
+  --c-background: white;
+  --c-body: var(--c-grey8);
+  --body-fontSize: var(--text-s);
+  --c-bodyDimmed: hsla(var(--greyH), var(--greyS), var(--grey8L), 0.5);
+  --c-fieldBorder: var(--c-grey2);
+  --c-buttonBg: var(--c-grey2);
+  --disabled-input-bg-color: var(--c-grey1);
+  --disabled-input-color: var(--c-grey4);
+  --error-input-bg-color: var(--c-danger);
+  --error-input-border-color: var(--c-danger);
+  --error-input-color: var(--c-danger);
+  --body-fontFamily: var(--fontFamily);
+
+  --hover-transition: 0.2s ease-in-out;
+
+  --radius: 0.4rem;
+  --fieldBorderWidth: 2px;
+
+  --select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  --select-iconwidth: var(--space-l);
+
+  --checkbox-size: var(--space-l);
+  --checkbox-check: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Im0xMC41ODYgMTMuNDE0bC0yLjgyOS0yLjgyOEw2LjM0MyAxMmw0LjI0MyA0LjI0M2w3LjA3LTcuMDcxbC0xLjQxMy0xLjQxNWwtNS42NTcgNS42NTdaIi8+PC9zdmc+);
+
+  --label-color: var(--c-grey7);
+  --label-fontSize: var(--text-s);
+  --label-fontWeight: 500;
+  --label-lineHeight: --globalLineHeight;
+  --label-case: none;
+}
+```

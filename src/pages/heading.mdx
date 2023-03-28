@@ -1,0 +1,100 @@
+---
+title: "Heading"
+layout: "../layouts/MainLayout.astro"
+---
+
+import { Heading } from "ziggyui-svelte";
+
+# Heading
+
+Used to display a heading.
+
+## Usage
+
+<Heading level="h1" text="I'm a Heading Element!" />
+
+```svelte
+<script>
+  import { Heading } from "ziggyui-svelte";
+</script>
+
+<Heading level="h1" text="I'm a Heading Element!" />
+```
+
+## CSS Variables
+
+The following CSS variables are available for customizing the appearance of the Heading component. They inherit their values from the `:root` element of the document.
+
+Further customization can be achieved by passing in props to the component.
+
+```css
+:root {
+  --heading-size: var(--text-m);
+  --heading-size-sm: var(--heading-size);
+  --heading-size-md: var(--heading-size);
+  --heading-size-lg: var(--heading-size);
+  --heading-size-xl: var(--heading-size);
+  --heading-align: left;
+  --heading-align-sm: var(--heading-align);
+  --heading-align-md: var(--heading-align);
+  --heading-align-lg: var(--heading-align);
+  --heading-align-xl: var(--heading-align);
+}
+```
+
+## Props
+
+### `level`
+
+The level of the heading. Can be one of `h1`, `h2`, `h3`, `h4`, `h5`, `h6`.
+
+```svelte
+<Heading level="h1" text="I'm a Heading Element!" />
+<Heading level="h2" text="I'm a Heading Element!" />
+<Heading level="h3" text="I'm a Heading Element!" />
+<Heading level="h4" text="I'm a Heading Element!" />
+<Heading level="h5" text="I'm a Heading Element!" />
+<Heading level="h6" text="I'm a Heading Element!" />
+```
+
+### `text`
+
+The text to display in the heading. Can be a string or html.
+
+```svelte
+<Heading level="h1" text="I'm a Heading Element!" />
+```
+
+### `align`
+
+The alignment of the heading. Can be one of `start`, `center`, `end`. Defaults to `start`.
+
+```svelte
+<Heading level="h1" text="I'm a Heading Element!" align="start" />
+<Heading level="h1" text="I'm a Heading Element!" align="center" />
+<Heading level="h1" text="I'm a Heading Element!" align="end" />
+```
+
+To change the alignment of the heading for a specific breakpoint, pass an array of values to the `align` prop. The values should be in the order of `mobile`, `tablet`, `desktop`, `largeDesktop`. If a value is not provided for a breakpoint, it will default to the value of the previous breakpoint.
+
+```svelte
+<Heading level="h1" text="I'm a Heading Element!" align={["center", "center", "start"]} />
+```
+
+### `size`
+
+The size of the heading. Can be one of `xs`, `s`, `m`, `l`, or `xl`. Defaults to `m`.
+
+```svelte
+<Heading level="h1" text="I'm a Heading Element!" size="xs" />
+<Heading level="h1" text="I'm a Heading Element!" size="s" />
+<Heading level="h1" text="I'm a Heading Element!" size="m" />
+<Heading level="h1" text="I'm a Heading Element!" size="l" />
+<Heading level="h1" text="I'm a Heading Element!" size="xl" />
+```
+
+To change the size of the heading for a specific breakpoint, pass an array of values to the `size` prop. The values should be in the order of `mobile`, `tablet`, `desktop`, `largeDesktop`. If a value is not provided for a breakpoint, it will default to the value of the previous breakpoint.
+
+```svelte
+<Heading level="h1" text="I'm a Heading Element!" size={["xs", "s", "m"]} />
+```

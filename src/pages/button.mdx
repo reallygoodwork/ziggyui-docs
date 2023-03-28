@@ -1,0 +1,153 @@
+---
+title: "Button"
+layout: "../layouts/MainLayout.astro"
+---
+
+import { Button } from "ziggyui-svelte";
+
+# Button
+
+The Button component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+
+## Usage
+
+<Button label="Click Me" />
+
+```svelte
+<script>
+  import { Button } from 'ziggyui-svelte';
+</script>
+
+<Button label="Click Me" />
+```
+
+## CSS Variables
+
+```css
+:root {
+  --button-color: var(--c-accentContrasted, #007bff);
+  --button-bg-color: var(--c-accent, #ffffff);
+  --button-padding-inline: var(--textFrameX, 24px);
+  --button-padding-block: var(--textFrameY, 12px);
+  --button-font-size: var(--text-s, 14px);
+  --button-border-radius: var(--radius, 4px);
+  --button-border-width: var(--fieldBorderWidth, 1px);
+  --button-border-color: var(--c-accentContrasted, #007bff);
+}
+```
+
+## Props
+
+### `label`
+
+The text of the button. Defaults to `Button`.
+
+<Button label="Button Label" />
+
+```svelte
+<Button label="Button Label" />
+```
+
+### `type`
+
+The type of the button. Defaults to `button`. The possible values are `button`, `submit`, and `reset`.
+
+<Button label="Click Me" type="submit" />
+
+```svelte
+<Button label="Click Me" type="submit" />
+```
+
+### `disabled`
+
+Is the button disabled. Defaults to `false`.
+
+<Button label="Click Me" disabled />
+
+```svelte
+<Button label="Click Me" disabled />
+```
+
+### `small`
+
+Is the button small in size. Defaults to `false`.
+
+<Button label="Click Me" small />
+
+```svelte
+<Button label="Click Me" small />
+```
+
+### `variant`
+
+The style of the button. Defaults to `primary`. The possible values are `primary`, `secondary`, `tertiary`, and `link`.
+
+#### Primary
+
+<Button label="Click Me" variant="primary" />
+
+```svelte
+<Button label="Click Me" variant="primary" />
+```
+
+#### Secondary
+
+<Button label="Click Me" variant="secondary" />
+
+```svelte
+<Button label="Click Me" variant="secondary" />
+```
+
+#### Tertiary
+
+<Button label="Click Me" variant="tertiary" />
+
+```svelte
+<Button label="Click Me" variant="tertiary" />
+```
+
+#### Link
+
+<Button label="Click Me" variant="link" />
+
+```svelte
+<Button label="Click Me" variant="link" />
+```
+
+### `customClass`
+
+Additional Styles of the button. Defaults to `''`.
+
+<Button label="Click Me" customClass="anyClassYouHave" />
+
+```svelte
+<Button label="Click Me" customClass="anyClassYouHave" />
+```
+
+### `hasArrow`
+
+Displays an arrow. Defaults to `false`.
+
+<Button label="Click Me" hasArrow />
+
+```svelte
+<Button label="Click Me" hasArrow />
+```
+
+## Events
+
+### `click`
+
+Emitted when the button is clicked.
+
+```svelte
+<script>
+  import { Button } from 'ziggyui-svelte';
+
+  const handleClick = () => {
+    console.log('Button clicked');
+  };
+</script>
+
+<Button label="Click Me" on:click={handleClick} />
+```

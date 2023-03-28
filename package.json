@@ -10,18 +10,25 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@algolia/client-search": "^4.13.1",
+    "@astrojs/mdx": "^0.18.2",
+    "@astrojs/preact": "^2.1.0",
+    "@astrojs/react": "^2.1.0",
+    "@astrojs/svelte": "^2.1.0",
+    "@astrojs/vercel": "^3.2.1",
+    "@docsearch/css": "^3.1.0",
+    "@docsearch/react": "^3.1.0",
+    "@fontsource/ibm-plex-mono": "^4.5.13",
+    "@fontsource/unbounded": "^4.5.1",
+    "@types/node": "^18.0.0",
+    "@types/react": "^17.0.45",
+    "@types/react-dom": "^18.0.0",
     "astro": "^2.1.7",
     "preact": "^10.7.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "@astrojs/react": "^2.1.0",
-    "@astrojs/preact": "^2.1.0",
-    "@algolia/client-search": "^4.13.1",
-    "@docsearch/css": "^3.1.0",
-    "@docsearch/react": "^3.1.0",
-    "@types/react": "^17.0.45",
-    "@types/node": "^18.0.0",
-    "@types/react-dom": "^18.0.0"
+    "svelte": "^3.57.0",
+    "ziggyui-svelte": "^0.0.7"
   },
   "devDependencies": {
     "html-escaper": "^3.0.3"

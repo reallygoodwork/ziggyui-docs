@@ -1,5 +1,5 @@
 export const SITE = {
-	title: 'Documentation',
+	title: 'ZiggyUI',
 	description: 'Your website description.',
 	defaultLanguage: 'en-us',
 } as const;
@@ -35,12 +35,21 @@ export type Sidebar = Record<
 	Record<string, { text: string; link: string }[]>
 >;
 export const SIDEBAR: Sidebar = {
-	en: {
-		'Section Header': [
-			{ text: 'Introduction', link: 'en/introduction' },
-			{ text: 'Page 2', link: 'en/page-2' },
-			{ text: 'Page 3', link: 'en/page-3' },
-		],
-		'Another Section': [{ text: 'Page 4', link: 'en/page-4' }],
-	},
+  en: {
+    "Getting Started": [{ text: "Introduction", link: "introduction" }],
+    Foundation: [
+      { text: "CSS Variables", link: "css-variables" },
+      { text: "CSS Logical Properties", link: "css-logical-properties" },
+      { text: "Responsive Styles", link: "responsive-styles" },
+    ],
+    Components: [
+      { text: "Button", link: "button" },
+      { text: "Checkbox", link: "checkbox" },
+      { text: "Flex", link: "flex" },
+      { text: "Heading", link: "heading" },
+      { text: "Input", link: "input" },
+      { text: "Label", link: "label" },
+      { text: "Select", link: "select" },
+    ],
+  },
 };

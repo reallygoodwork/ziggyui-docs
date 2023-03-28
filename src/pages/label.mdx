@@ -1,0 +1,70 @@
+---
+title: "Label"
+layout: "../layouts/MainLayout.astro"
+---
+
+import { Label, Input } from "ziggyui-svelte";
+
+# Label
+
+The Label component is used to label a form element.
+
+## Usage
+
+<Label name="input">Label</Label>
+
+```svelte
+<script>
+  import { Label } from "ziggyui-svelte";
+</script>
+
+<Label name="input">Label</Label>
+```
+
+## CSS Variables
+
+```css
+:root {
+  --label-color: var(--label-color);
+  --label-fontSize: var(--label-fontSize);
+  --label-fontWeight: var(--label-fontWeight);
+  --label-lineHeight: var(--label-lineHeight);
+  --label-case: var(--label-case);
+}
+```
+
+## Props
+
+### `name`
+
+The name of the form element that the label is for.
+
+{" "}
+
+<Label name="input">Label</Label>
+<Input name="input" />
+
+```svelte
+<script>
+  import { Label, Input } from "ziggyui-svelte";
+</script>
+
+<Label name="input">Label</Label>
+<Input name="input" />
+```
+
+### `customClass`
+
+A custom class to add to the label.
+
+<Label name="input" customClass="custom">
+  Label
+</Label>
+
+```svelte
+<script>
+  import { Label } from "ziggyui-svelte";
+</script>
+
+<Label name="input" customClass="custom">Label</Label>
+```

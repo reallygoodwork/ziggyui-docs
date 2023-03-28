@@ -1,0 +1,44 @@
+---
+title: "Introduction"
+layout: "../layouts/MainLayout.astro"
+---
+
+# Hello! This is ZiggyUI
+
+ZiggyUI is a UI library for Svelte. It is a collection of components and utilities that make it easy to build beautiful, responsive, and accessible user interfaces. The library is powered by CSS Variables and is fully customizable. You can use them as is or customize them to fit your needs.
+
+## Why ZiggyUI?
+
+### CSS Variables
+
+CSS Variables are used to make the library customizable. You can change the colors, fonts, and other properties of the components to fit your needs. Many of the variables are compositional, which means you can change the color of a component by changing the value of a single variable.
+
+### CSS Logical Properties
+
+ZiggyUI uses CSS Logical Properties to make the library RTL friendly. This means that you can use the library in both LTR and RTL languages without any additional work.
+
+### Accessibility
+
+ZiggyUI is fully accessible. All the components are built with accessibility in mind. The components are keyboard accessible and have ARIA attributes. The components are also tested with [Axe](https://www.deque.com/axe/) and [WAVE](https://wave.webaim.org/).
+
+## Getting Started
+
+### Installation
+
+```bash
+npm install ziggyui-svelte
+```
+
+### Usage
+
+```svelte
+<script>
+  import { Button } from 'ziggyui-svelte';
+</script>
+```
+
+### Styles
+
+```scss
+@import "ziggyui-svelte/dist/styles.css";
+```

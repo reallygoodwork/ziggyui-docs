@@ -1,0 +1,73 @@
+---
+title: "CSS Logical Properties"
+layout: "../layouts/MainLayout.astro"
+---
+
+# CSS Logical Properties
+
+ZiggyUI is designed to be used in any language direction. It uses CSS logical properties to make it easier to write CSS that works in any language direction. Logical properties are properties that are directionalized based on the language direction. For example, the `margin-left` property is directionalized to `margin-inline-start` when the language direction is right-to-left.
+
+## Margin
+
+To control the spacing around an element, you can use margin. The `margin` property is a shorthand for `margin-block-start`, `margin-block-end`, `margin-inline-start`, and `margin-inline-end`. The `margin-block-start` and `margin-block-end` properties control the top and bottom margins, and the `margin-inline-start` and `margin-inline-end` properties control the left and right margins. In RTL languages, the `margin-inline-start` and `margin-inline-end` properties are swapped.
+
+```css
+.element {
+  margin-inline: 1rem; /* margin-inline-start and margin-inline-end */
+  margin-block: 1rem; /* margin-block-start and margin-block-end */
+}
+
+.element {
+  margin-inline-start: 1rem; /* left margin in LTR, right margin in RTL */
+  margin-inline-end: 1rem; /* right margin in LTR, left margin in RTL */
+  margin-block-start: 1rem; /* top margin */
+  margin-block-end: 1rem; /* bottom margin */
+}
+```
+
+## Padding
+
+To control the spacing inside an element, you can use padding. The `padding` property is a shorthand for `padding-block-start`, `padding-block-end`, `padding-inline-start`, and `padding-inline-end`. The `padding-block-start` and `padding-block-end` properties control the top and bottom padding, and the `padding-inline-start` and `padding-inline-end` properties control the left and right padding. In RTL languages, the `padding-inline-start` and `padding-inline-end` properties are swapped.
+
+```css
+.element {
+  padding-inline: 1rem; /* padding-inline-start and padding-inline-end */
+  padding-block: 1rem; /* padding-block-start and padding-block-end */
+}
+
+.element {
+  padding-inline-start: 1rem; /* left padding in LTR, right padding in RTL */
+  padding-inline-end: 1rem; /* right padding in LTR, left padding in RTL */
+  padding-block-start: 1rem; /* top padding */
+  padding-block-end: 1rem; /* bottom padding */
+}
+```
+
+## Border
+
+To control the border around an element, you can use border. The `border` property is a shorthand for `border-block-start`, `border-block-end`, `border-inline-start`, and `border-inline-end`. The `border-block-start` and `border-block-end` properties control the top and bottom borders, and the `border-inline-start` and `border-inline-end` properties control the left and right borders. In RTL languages, the `border-inline-start` and `border-inline-end` properties are swapped.
+
+```css
+.element {
+  border-inline: 1px solid black; /* border-inline-start and border-inline-end */
+  border-block: 1px solid black; /* border-block-start and border-block-end */
+}
+
+.element {
+  border-inline-start: 1px solid black; /* left border in LTR, right border in RTL */
+  border-inline-end: 1px solid black; /* right border in LTR, left border in RTL */
+  border-block-start: 1px solid black; /* top border */
+  border-block-end: 1px solid black; /* bottom border */
+}
+```
+
+## Text Alignment
+
+To control the alignment of text, you can use the `text-align` property. In RTL languages, the `text-align` property is swapped.
+
+```css
+.element {
+  text-align: start; /* left in LTR, right in RTL. Equivalent to text-align: left in LTR languages */
+  text-align: end; /* right in LTR, left in RTL.  Equivalent to text-align: right in LTR languages*/
+}
+```
